@@ -9,11 +9,14 @@ let imagenAvatar = document.createElement("IMG");
 imagenAvatar.src = "../assets/images/bird.png";
 
 let spacePressed = false;
+let frame = 0;
 
 const animate = () => {
     ctx.clearRect(0, 0, canvasAncho, canvasAlto);
     bird.actualizar();
     bird.dibujar();
+    manejoObstaculos();
+    frame++;
 };
 
 setInterval(animate, 1000 / FPS);
