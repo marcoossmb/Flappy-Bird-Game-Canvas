@@ -3,8 +3,8 @@ class Bird {
         this.x = 50;
         this.y = 200;
         this.vy = 0;
-        this.ancho = 20;
-        this.alto = 20;
+        this.ancho = 30;
+        this.alto = 30;
         this.peso = 1;
     }
     actualizar(){
@@ -25,9 +25,9 @@ class Bird {
         }
     }
     dibujar(){
-        ctx.strokeStyle = "black";
+        /* ctx.strokeStyle = "black";
         ctx.lineWidth = 2;
-        ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
+        ctx.strokeRect(this.x, this.y, this.ancho, this.alto); */
 
         ctx.drawImage(imagenAvatar, this.x, this.y, this.ancho, this.alto);
     }

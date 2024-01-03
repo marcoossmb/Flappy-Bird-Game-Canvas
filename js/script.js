@@ -10,25 +10,75 @@ imagenAvatar.src = "../assets/images/bird.png";
 
 let spacePressed = false;
 let frame = 0;
+let score = 0;
+
+const background = new Image();
+background.src = '../assets/images/fondo.png';
+
+const mostrarBackground = () => {
+    ctx.drawImage(background, 0, 0, canvasAncho, canvasAlto)
+}
 
 const animate = () => {
     ctx.clearRect(0, 0, canvasAncho, canvasAlto);
+    mostrarBackground();
+    manejoObstaculos();
     bird.actualizar();
     bird.dibujar();
-    manejoObstaculos();
+    ctx.fillStyle = "black";
+    ctx.font = "90px Georgia";
+    ctx.strokeText(score, 450 ,70);
+    ctx.fillText(score, 450 ,70);
+    verificarColision();
     frame++;
 };
 
-setInterval(animate, 1000 / FPS);
+let juegoEnMarcha;
 
-window.addEventListener("keydown", (event) => {
+const iniciarJuego = () => {
+    canvas.style.display= "block"
+    juegoEnMarcha = setInterval(animate, 1000 / FPS);
+    document.removeEventListener("keyup", iniciarJuego);
+}
+
+document.addEventListener("keyup",iniciarJuego)
+
+document.addEventListener("keydown", (event) => {
     if (event.code === "Space") {
         spacePressed = true;
     }
 });
 
-window.addEventListener("keyup", (event) => {
+document.addEventListener("keyup", (event) => {
     if (event.code === "Space") {
         spacePressed = false;
+    }
+});
+
+const verificarColision = () => {
+    for (let i = 0; i < obstaculosArray.length; i++) {
+        if (bird.x < obstaculosArray[i].x + obstaculosArray[i].ancho &&
+            bird.x + bird.ancho > obstaculosArray[i].x && 
+            ((bird.y < 0 + obstaculosArray[i].top && bird.y + bird.alto > 0) ||
+            (bird.y > canvasAlto - obstaculosArray[i].bottom &&
+            bird.y + bird.alto < canvasAlto))) 
+            {
+            clearInterval(juegoEnMarcha);
+            ctx.font= "25px Georgia";
+            ctx.fillStyle = "black";
+            ctx.fillText("Game Over, tu puntuación es "+score, 160, canvasAlto/2 -10)
+            
+            let btn_volver = document.createElement("button")
+            btn_volver.id = "btn_volver"
+            btn_volver.textContent = "Volver a Jugar"
+            btn_volver.style.marginTop = 20+"px"
+            document.body.appendChild(btn_volver)
+        }
+    }
+}
+
+document.addEventListener("click", (event) => {
+    if (event.target.id === "btn_volver") {
+        location.reload();
     }
 });

@@ -7,6 +7,7 @@ class Obstaculo {
         this.x = canvasAncho
         this.ancho = 30
         this.color = "red"
+        this.contador = false
     }
     dibujarObstaculo(){
         ctx.fillStyle = this.color
@@ -15,6 +16,10 @@ class Obstaculo {
     }
     actualizarObstaculo(){
         this.x -= 2
+        if (!this.contador && this.x < bird.x) {
+            score++;
+            this.contador = true;
+        }
         this.dibujarObstaculo();
     }
 }

@@ -1,11 +1,14 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0;
+    background-color: #4EC0CA;
 }
 
 canvas {
     margin-top: 50px;
     border: 1px solid #ccc;
+    display: none;
 }
