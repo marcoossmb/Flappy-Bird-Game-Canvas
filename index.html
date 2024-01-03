@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/images/fondo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
     <title>Flappy Bird Game</title>
 </head>
 <body>
+    <div id="contenedor" class="contenedor">
+        <h1 class="main__title">Bienvenido a Flappy Bird</h1>
+        <h2>Instrucciones</h2>
+        <p>Tu objetivo en este juego será intentar alcanzar la máxima puntuación posible esquivando todos los obstáculos</p>
+        <p>Si te chocas con algún obstáculo estas eliminado y tendrás que volver a empezar</p>
+        <p>Pulsa la tecla <strong>ESPACIO</strong> para empezar a volar y la misma para mantenerte en el aire y esquivar los objetos.</p>
+        <div class="box__img">
+            <img class="main__img" src="./assets/images/space-key.png" alt="">
+        </div>
+    </div>
     <canvas id="canvas" width="600" height="400"></canvas>
 
     <script src="./js/bird.js"></script>

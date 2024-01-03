@@ -1,6 +1,8 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+const contenedor = document.getElementById("contenedor")
+
 const canvasAncho = 600
 const canvasAlto = 400
 const FPS = 60
@@ -37,11 +39,18 @@ let juegoEnMarcha;
 
 const iniciarJuego = () => {
     canvas.style.display= "block"
+    contenedor.style.display= "none"
     juegoEnMarcha = setInterval(animate, 1000 / FPS);
-    document.removeEventListener("keyup", iniciarJuego);
+    document.removeEventListener("keyup", iniciarJuegoEvent);
 }
 
-document.addEventListener("keyup",iniciarJuego)
+const iniciarJuegoEvent = (event) => {
+    if (event.code === "Space") {
+        iniciarJuego();
+    }
+}
+
+document.addEventListener("keyup", iniciarJuegoEvent);
 
 document.addEventListener("keydown", (event) => {
     if (event.code === "Space") {
@@ -71,7 +80,7 @@ const verificarColision = () => {
             let btn_volver = document.createElement("button")
             btn_volver.id = "btn_volver"
             btn_volver.textContent = "Volver a Jugar"
-            btn_volver.style.marginTop = 20+"px"
+            btn_volver.classList.add("btn__volver")
             document.body.appendChild(btn_volver)
         }
     }

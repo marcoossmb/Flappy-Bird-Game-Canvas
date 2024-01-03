@@ -4,11 +4,49 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    background-color: #4EC0CA;
+    background: linear-gradient(to right, #3498db, #043669);
 }
 
 canvas {
     margin-top: 50px;
     border: 1px solid #ccc;
     display: none;
+}
+
+.contenedor {
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 1px solid #ccc;
+    width: 1080px;
+    font-family: Georgia;
+    padding: 10px 50px 0px 50px;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.main__title {
+    text-align: center;
+    border-bottom: 1px solid #0076D7;
+    padding-bottom: 20px;
+}
+
+.box__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__img {
+    width: 600px;
+    margin-top: 20px;
+}
+
+.btn__volver {
+    margin-top: 20px;
+    padding: 10px;
+    font-family: Georgia;
+    border-radius: 5px;
+    background-color: #ccc;
+    border: 0;
+    font-weight: bold;
 }
