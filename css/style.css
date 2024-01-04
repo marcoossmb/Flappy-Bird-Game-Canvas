@@ -1,10 +1,16 @@
+html {
+    height: 100%;
+}
+
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     margin: 0;
     background: linear-gradient(to right, #3498db, #043669);
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
 }
 
 canvas {
@@ -16,12 +22,12 @@ canvas {
 .contenedor {
     margin: 0 auto;
     margin-top: 50px;
-    border: 1px solid #ccc;
     width: 1080px;
     font-family: Georgia;
     padding: 10px 50px 0px 50px;
     background-color: #ccc;
     border-radius: 5px;
+    position: relative;
 }
 
 .main__title {
@@ -49,4 +55,14 @@ canvas {
     background-color: #ccc;
     border: 0;
     font-weight: bold;
+}
+
+.btn__musica {
+    border-radius: 100px;
+    border: 0;
+    font-size: 2rem;
+    padding: 10px;
+    position: absolute;
+    top: 15px;
+    right: 50px;
 }

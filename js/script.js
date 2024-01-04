@@ -2,6 +2,10 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 const contenedor = document.getElementById("contenedor")
+const flapSound = document.getElementById("flapSound");
+const deadSound = document.getElementById("deadSound");
+const backgroundMusic = document.getElementById("backgroundMusic");
+const btn__musica = document.getElementById("btn__musica");
 
 const canvasAncho = 600
 const canvasAlto = 400
@@ -29,8 +33,8 @@ const animate = () => {
     bird.dibujar();
     ctx.fillStyle = "black";
     ctx.font = "90px Georgia";
-    ctx.strokeText(score, 450 ,70);
-    ctx.fillText(score, 450 ,70);
+    ctx.strokeText(score, 450, 70);
+    ctx.fillText(score, 450, 70);
     verificarColision();
     frame++;
 };
@@ -38,8 +42,9 @@ const animate = () => {
 let juegoEnMarcha;
 
 const iniciarJuego = () => {
-    canvas.style.display= "block"
-    contenedor.style.display= "none"
+    canvas.style.display = "block"
+    main.style.display = "none"
+    contenedor.style.backgroundColor = "transparent"
     juegoEnMarcha = setInterval(animate, 1000 / FPS);
     document.removeEventListener("keyup", iniciarJuegoEvent);
 }
@@ -55,6 +60,7 @@ document.addEventListener("keyup", iniciarJuegoEvent);
 document.addEventListener("keydown", (event) => {
     if (event.code === "Space") {
         spacePressed = true;
+        flapSound.play();
     }
 });
 
@@ -86,8 +92,23 @@ const verificarColision = () => {
     }
 }
 
+
 document.addEventListener("click", (event) => {
     if (event.target.id === "btn_volver") {
         location.reload();
     }
 });
+
+backgroundMusic.volume = 0.5;
+
+const toggleBackgroundMusic = () => {
+    if (backgroundMusic.paused) {
+        backgroundMusic.play();
+        btn__musica.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    } else {
+        backgroundMusic.pause();
+        btn__musica.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    }
+}
+
+btn__musica.addEventListener("click", toggleBackgroundMusic);

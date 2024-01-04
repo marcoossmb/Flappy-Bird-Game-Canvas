@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/images/fondo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Flappy Bird Game</title>
 </head>
+
 <body>
     <div id="contenedor" class="contenedor">
-        <h1 class="main__title">Bienvenido a Flappy Bird</h1>
-        <h2>Instrucciones</h2>
-        <p>Tu objetivo en este juego será intentar alcanzar la máxima puntuación posible esquivando todos los obstáculos</p>
-        <p>Si te chocas con algún obstáculo estas eliminado y tendrás que volver a empezar</p>
-        <p>Pulsa la tecla <strong>ESPACIO</strong> para empezar a volar y la misma para mantenerte en el aire y esquivar los objetos.</p>
-        <div class="box__img">
-            <img class="main__img" src="./assets/images/space-key.png" alt="">
+        <div id="main">
+            <h1 class="main__title">Bienvenido a Flappy Bird</h1>
+            <h2>Instrucciones</h2>
+            <p>Tu objetivo en este juego será intentar alcanzar la máxima puntuación posible esquivando todos los obstáculos</p>
+            <p>Si te chocas con algún obstáculo estas eliminado y tendrás que volver a empezar</p>
+            <p>Pulsa la tecla <strong>ESPACIO</strong> para empezar a volar y la misma para mantenerte en el aire y esquivar los objetos.</p>
+            <div class="box__img">
+                <img class="main__img" src="./assets/images/space-key.png" alt="">
+            </div>
         </div>
+        <button class="btn__musica" id="btn__musica">
+            <i class="fa-solid fa-volume-xmark"></i>
+        </button>
     </div>
+
     <canvas id="canvas" width="600" height="400"></canvas>
+    <audio id="flapSound" src="./assets/audio/salto.mp3"></audio>
+    <audio id="deadSound" src="./assets/audio/muerte.mp3"></audio>
+    <audio id="backgroundMusic" autoplay loop volume="0.1">
+        <source src="./assets/audio/musicadefondo.mp3" type="audio/mp3">
+    </audio>
 
     <script src="./js/bird.js"></script>
     <script src="./js/obstaculos.js"></script>
     <script src="./js/script.js"></script>
 </body>
+
 </html>
