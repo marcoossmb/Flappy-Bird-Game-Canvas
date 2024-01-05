@@ -12,14 +12,14 @@ const canvasAlto = 400
 const FPS = 60
 
 let imagenAvatar = document.createElement("IMG");
-imagenAvatar.src = "../assets/images/bird.png";
+imagenAvatar.src = "./assets/images/bird.png";
 
 let spacePressed = false;
 let frame = 0;
 let score = 0;
 
 const background = new Image();
-background.src = '../assets/images/fondo.png';
+background.src = './assets/images/fondo.png';
 
 const mostrarBackground = () => {
     ctx.drawImage(background, 0, 0, canvasAncho, canvasAlto)
