@@ -107,10 +107,10 @@ backgroundMusic.volume = 0.5;
 const toggleBackgroundMusic = () => {
     if (backgroundMusic.paused) {
         backgroundMusic.play();
-        btn__musica.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+        btn__musica.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
     } else {
         backgroundMusic.pause();
-        btn__musica.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        btn__musica.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
     }
 }
 
